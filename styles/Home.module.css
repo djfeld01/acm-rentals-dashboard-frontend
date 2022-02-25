@@ -1,0 +1,200 @@
+.body {
+  background-color: var(--peach-crayola);
+}
+.App {
+  margin: 5em;
+  background-color: var(--peach-crayola);
+}
+.nav {
+  position: sticky;
+  height: var(--nav-height);
+  background-color: var(--platinum);
+  box-shadow: var(--shadow-2);
+  padding: 0.25rem 0.5rem;
+}
+
+.page {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 2fr 12fr 1fr;
+}
+.sidebar {
+  grid-column-start: 1;
+  background-color: var(--platinum);
+  vertical-align: top;
+  height: 100%;
+  color: var(--grey-800);
+}
+.sidebar a {
+  width: 100%;
+  background-color: var(--platinum);
+  color: var(--grey-800);
+}
+
+.sidebar a:hover {
+  background-color: var(--peach-crayola);
+  box-shadow: var(--shadow-2);
+}
+
+.container {
+  height: 100%;
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  /* padding: 0.9em; */
+  background-color: var(--peach-crayola);
+}
+.locationCardContainer {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  /* padding: 0.9em; */
+  background-color: lightblue;
+  gap: 0.7em;
+}
+
+.activityTotals {
+  /* padding: 0.25em; */
+  display: block;
+}
+
+/* 
+.selectedStore {
+  background: linear-gradient(45deg, #ff504b 0%, #fea061 100%);
+  text-align: center;
+  color: white;
+  margin: 0.25em;
+  border-radius: 20px;
+  grid-row: span 2;
+  grid-column: span 2;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  padding: 0.25em;
+}
+
+.graph {
+  background-color: white;
+  grid-row: span 3;
+  grid-column: span 4;
+  border-radius: 20px;
+  color: black;
+}
+
+.storeCard {
+  background: linear-gradient(45deg, #410469 0%, #035e0f 100%);
+
+  text-align: center;
+  color: white;
+  margin: 0.45em;
+  border-radius: 20px;
+  transition: background-color 0.5s;
+}
+
+.storeCard:hover {
+  background: linear-gradient(45deg, #9fa10c 0%, #aa4520 100%);
+
+  transform: scale(1.03);
+  /* grid-row: span 2;
+  grid-column: span 2;
+} */
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flipCard {
+  background-color: transparent;
+  display: grid;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  /* padding: 0.25em; */
+
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side 
+.flipCardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 1.2s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 3%;
+}*/
+
+/* Do an horizontal flip when you move the mouse over the flip box container
+.flipCard:hover .flipCardInner {
+  transform: rotateY(180deg);
+} */
+
+/* Position the front and back side
+.flipCardFront,
+.flipCardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari
+  backface-visibility: hiden;
+} */
+
+/* Style the front side (fallback if image is missing) */
+.flipCardFront {
+  text-align: center;
+  display: grid;
+  background-color: var(--alabaster);
+  color: rgb(0, 0, 0);
+  /* border-radius: 10%; */
+  border-bottom: 2px solid var(--grey-800);
+  cursor: pointer;
+  box-shadow: var(--shadow-2);
+}
+
+.flipCardFrontSelected {
+  text-align: center;
+  display: grid;
+  background-color: var(--primary-500);
+  color: rgb(0, 0, 0);
+  /* border-radius: 10%; */
+
+  cursor: pointer;
+  box-shadow: var(--shadow-2);
+}
+.unitContainer {
+  grid-column-start: 1;
+  grid-column-end: 14;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  background-color: var(--primary-500);
+  /* margin-top: 1rem; */
+  /* margin-left: 0.25rem; */
+  color: var(--grey-800);
+  gap: 0.75rem;
+  /* border-top: 5px solid var(--grey-800); */
+  padding: 0.5em;
+}
+.unit {
+  background-color: var(--platinum);
+  display: grid;
+  grid-template-columns: 1fr;
+
+  height: 100px;
+  font-size: 0.8em;
+  padding: 0.5em;
+  border-radius: 25%;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  text-align: center;
+  box-shadow: var(--shadow-2);
+}
+.unitStoreName {
+  grid-column-start: 1;
+  grid-column-end: 13;
+  background-color: var(--platinum);
+}
+/* Style the back side
+.flipCardBack {
+  background: linear-gradient(45deg, rgb(16, 73, 129) 0%, dodgerblue 100%);
+  color: white;
+  transform: rotateY(180deg);
+  border-radius: 3%;
+} */

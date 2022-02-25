@@ -1,0 +1,49 @@
+.container {
+  height: 100%;
+  border-bottom: 1px solid var(--grey-800);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0.25em;
+  padding: 0.25em;
+  background-color: white;
+  border-radius: 10px;
+  padding: 0.2em;
+  text-align: center;
+  /* background-color: var(--peach-crayola); */
+}
+
+.activityHead {
+  grid-column: 1/ 5;
+  font-size: 1.2rem;
+  background-color: black;
+  color: lightgray;
+  font-family: var(--headingFont);
+  padding: 0.2em;
+  margin: 0;
+}
+.header {
+  grid-column: 1/ 5;
+  font-size: 1rem;
+  background-color: black;
+  color: lightgray;
+  font-family: var(--headingFont);
+  padding: 0.2em;
+  margin: 0;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.timeFrame {
+  display: block;
+  font-weight: 700;
+  font-size: 1rem;
+  color: rgb(233, 185, 73);
+  justify-content: center;
+}
+
+.subHead {
+  font-size: 1rem;
+  background-color: black;
+  color: lightgray;
+  justify-content: center;
+}
