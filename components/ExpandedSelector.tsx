@@ -14,6 +14,7 @@ function ExpandedSelector({ handleChange }) {
           value="expand"
           name="expandCollapse"
           onChange={handleChange}
+          defaultChecked
         />
       </label>
       <label>
@@ -23,7 +24,6 @@ function ExpandedSelector({ handleChange }) {
           value="collapse"
           name="expandCollapse"
           onChange={handleChange}
-          defaultChecked
         />
       </label>
     </div>
