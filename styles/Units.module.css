@@ -2,7 +2,7 @@
   height: 100%;
   border-bottom: 5px solid rgb(97, 73, 233);
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   margin: 0.25em;
   padding: 0.25em;
   background-color: white;
@@ -15,7 +15,7 @@
 }
 
 .activityHead {
-  grid-column: 1/ 5;
+  grid-column: 1/ 8;
   font-size: 1.2rem;
   background-color: black;
   color: lightgray;
@@ -24,7 +24,7 @@
   margin: 0;
 }
 .header {
-  grid-column: 1/ 5;
+  grid-column: 1/ 8;
   font-size: 1rem;
   background-color: black;
   color: lightgray;
@@ -35,6 +35,14 @@
   border-top-left-radius: 10px;
 }
 
+.size {
+  grid-column: 1/ 4;
+  display: block;
+  font-weight: 500;
+  font-size: 0.75rem;
+  color: black;
+  justify-content: center;
+}
 .timeFrame {
   display: block;
   font-weight: 700;
@@ -44,6 +52,14 @@
 }
 
 .subHead {
+  font-size: 1rem;
+  background-color: black;
+  color: lightgray;
+  justify-content: center;
+}
+
+.sizeHead {
+  grid-column: 1/ 4;
   font-size: 1rem;
   background-color: black;
   color: lightgray;

@@ -2,48 +2,63 @@ import type { GetServerSideProps, NextPage } from 'next';
 import styles from '../../styles/Home.module.css';
 import axios from 'axios';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+
+import { useState } from 'react';
 import LocationCard from '../../components/LocationCard';
+import ActivityTypeSelector from '../../components/ActivityTypeSelector';
+import TimeframeSelector from '../../components/TimeframeSelector';
+import ExpandedSelector from '../../components/ExpandedSelector';
+import Units from '../../components/Units';
 
 const Dashboard: NextPage = ({ data }) => {
   const [activityType, setActivityType] = useState('moveIns');
-  // const router = useRouter();
-  // useEffect(() => {
-  //   router.push('/dashboard/today');
-  // }, []);
-  const handleChange = (e) => {
+  const [selectedLocation, setSelectedLocation] = useState(data[0]);
+  const [expanded, setExpanded] = useState(false);
+  const [dateRange, setDateRange] = useState('today');
+
+  const handleActivityTypeChange = (e) => {
     setActivityType(e.target.value);
   };
+  const handleDateRangeChange = (e) => {
+    setDateRange(e.target.value);
+  };
+  const handleExpanding = (e) => {
+    e.target.value === 'expand' ? setExpanded(true) : setExpanded(false);
+  };
+
   return (
-    <div className={styles.locationCardContainer}>
-      <div>
-        <input
-          type="radio"
-          value="moveIns"
-          name="activityType"
-          onChange={handleChange}
-          defaultChecked
-        />
-        <label>Move Ins</label>
-        <input
-          type="radio"
-          value="moveOuts"
-          name="activityType"
-          onChange={handleChange}
-        />
-        <label>Move Outs</label>
-        <input
-          type="radio"
-          value="net"
-          name="activityType"
-          onChange={handleChange}
-        />
-        <label>Net</label>
+    <div className={styles.pageContainer}>
+      <ActivityTypeSelector handleChange={handleActivityTypeChange} />
+      <ExpandedSelector handleChange={handleExpanding} />
+      {!expanded && <TimeframeSelector handleChange={handleDateRangeChange} />}
+      <div
+        className={
+          expanded
+            ? styles.locationCardContainer
+            : styles.locationCardContainerCollapsed
+        }
+      >
+        {data.map((location) => {
+          return (
+            <LocationCard
+              location={location}
+              activityType={activityType}
+              setSelectedStore={() => setSelectedLocation(location)}
+              dateRange={dateRange}
+              expanded={expanded}
+            />
+          );
+        })}
       </div>
-      {data.map((location) => {
-        return <LocationCard location={location} activityType={activityType} />;
-      })}
+
+      <div className={styles.unitContainer}>
+        <Units
+          location={selectedLocation}
+          activityType={activityType}
+          expanded={expanded}
+          dateRange={dateRange}
+        />
+      </div>
     </div>
   );
 };
@@ -56,7 +71,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
   );
   const { data } = response.data;
 
-  // console.log(data);
   return {
     props: { data },
   };

@@ -2,7 +2,11 @@ import { NextComponentType } from 'next';
 import { useState, useEffect } from 'react';
 import styles from '../styles/Home.module.css';
 
-const Activities: NextComponentType = ({ activities }) => {
+const Activities: NextComponentType = ({
+  activities,
+}: {
+  activities: Array<object>;
+}) => {
   const [selectedStore, setSelectedStore] = useState(activities[0]);
 
   useEffect(() => {

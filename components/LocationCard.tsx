@@ -1,26 +1,61 @@
-import React from 'react';
+import { NextComponentType } from 'next';
+import React, { useState } from 'react';
 import styles from '../styles/LocationCard.module.css';
+import { filterData } from '../utils/filterData';
 
-function LocationCard({ location, activityType }) {
-  const { activities } = location;
-  // console.log(activities);
+interface ActivitiesProp {}
+const LocationCard = ({
+  location,
+  activityType,
+  setSelectedStore,
+  expanded,
+  dateRange,
+}: {
+  location: object;
+  activityType: string;
+  setSelectedStore: any;
+  expanded: boolean;
+  dateRange: string;
+}) => {
+  const { activities }: { activities: Array<object> } = location;
+  const dateBreakdown = { year: 0, month: 1, week: 2, today: 3 };
+  const filteredActivities = filterData(activities);
+
+  let collapsedActivity = filteredActivities[dateBreakdown[dateRange]];
   return (
-    <div className={styles.container}>
-      <h3 className={styles.header}>{location.locationInfo[0].siteName}</h3>
-      <h3 className={styles.activityHead}>{activityType}</h3>
-      <h3 className={styles.subHead}>Year</h3>
-      <h3 className={styles.subHead}>Month</h3>
-      <h3 className={styles.subHead}>Week</h3>
-      <h3 className={styles.subHead}>Today</h3>
-      {activities.map((activity) => {
-        return (
+    <div
+      className={styles.container}
+      key={location._id}
+      onClick={setSelectedStore}
+    >
+      {expanded ? (
+        <>
+          <h3 className={styles.header}>{location.locationInfo[0].siteName}</h3>
+          <h3 className={styles.activityHead}>{activityType}</h3>
+          <h3 className={styles.subHead}>Year</h3>
+          <h3 className={styles.subHead}>Month</h3>
+          <h3 className={styles.subHead}>Week</h3>
+          <h3 className={styles.subHead}>Today</h3>
+          {filteredActivities.map((activity, index) => {
+            return (
+              <h4 className={styles.timeFrame} key={index}>
+                {activity ? activity[activityType] : '0'}
+              </h4>
+            );
+          })}
+        </>
+      ) : (
+        <>
+          <h3 className={styles.header}>
+            {location.locationInfo[0].siteAbbreviation}
+          </h3>
           <h4 className={styles.timeFrame}>
-            {activity[activityType] ? activity[activityType] : '0'}
+            {collapsedActivity ? collapsedActivity[activityType] : 0}
           </h4>
-        );
-      })}
+        </>
+      )}
     </div>
   );
-}
+};
 
 export default LocationCard;
