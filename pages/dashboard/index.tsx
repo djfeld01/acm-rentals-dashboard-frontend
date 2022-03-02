@@ -13,7 +13,7 @@ import Units from '../../components/Units';
 const Dashboard: NextPage = ({ data }) => {
   const [activityType, setActivityType] = useState('moveIns');
   const [selectedLocation, setSelectedLocation] = useState(data[0]);
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(true);
   const [dateRange, setDateRange] = useState('today');
 
   const handleActivityTypeChange = (e) => {
