@@ -24,6 +24,7 @@ const Activities: NextComponentType = ({
                 ? styles.flipCardFrontSelected
                 : styles.flipCardFront
             }
+            key={activity._id}
             onClick={() => setSelectedStore(activity)}
           >
             <h3 className={styles.locationName}>

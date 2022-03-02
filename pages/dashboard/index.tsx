@@ -46,6 +46,7 @@ const Dashboard: NextPage = ({ data }) => {
               setSelectedStore={() => setSelectedLocation(location)}
               dateRange={dateRange}
               expanded={expanded}
+              key={location._id}
             />
           );
         })}

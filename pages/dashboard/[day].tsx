@@ -26,7 +26,7 @@ const Dashboard: NextPage = ({ activities }) => {
       <div className={styles.page}>
         <div className={styles.sidebar}>
           <Link href="/dashboard/yesterday">
-            <a>Yesterday's Numbers </a>
+            <a>Yesterday&apos;s Numbers </a>
           </Link>
 
           <Link href="/dashboard/week">
@@ -38,7 +38,7 @@ const Dashboard: NextPage = ({ activities }) => {
           </Link>
 
           <Link href="/dashboard/today">
-            <a>Today's Numbers </a>
+            <a>Today&apos;s Numbers </a>
           </Link>
         </div>
 

@@ -10,12 +10,14 @@ const LocationCard = ({
   setSelectedStore,
   expanded,
   dateRange,
+  key,
 }: {
   location: object;
   activityType: string;
   setSelectedStore: any;
   expanded: boolean;
   dateRange: string;
+  key: string;
 }) => {
   const { activities }: { activities: Array<object> } = location;
   const dateBreakdown = { year: 0, month: 1, week: 2, today: 3 };
@@ -23,11 +25,7 @@ const LocationCard = ({
 
   let collapsedActivity = filteredActivities[dateBreakdown[dateRange]];
   return (
-    <div
-      className={styles.container}
-      key={location._id}
-      onClick={setSelectedStore}
-    >
+    <div className={styles.container} key={key} onClick={setSelectedStore}>
       {expanded ? (
         <>
           <h3 className={styles.header}>{location.locationInfo[0].siteName}</h3>
