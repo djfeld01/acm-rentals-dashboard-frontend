@@ -25,6 +25,12 @@ const filteredUnits = (activities, unitActivityType) => {
     if (a.unitType > b.unitType) {
       return 1;
     }
+    if (a.unitSize < b.unitSize) {
+      return -1;
+    }
+    if (a.unitSize > b.unitSize) {
+      return 1;
+    }
     return 0;
   };
 
