@@ -1,5 +1,5 @@
 import type { GetServerSideProps, NextPage } from 'next';
-import styles from '../../styles/Home.module.css';
+import styles from '../../styles/Home2.module.css';
 import axios from 'axios';
 import Link from 'next/link';
 
@@ -30,10 +30,8 @@ const Dashboard: NextPage = ({ data }) => {
     <>
       <ActivityTypeSelector handleChange={handleActivityTypeChange} />
       <ExpandedSelector handleChange={handleExpanding} />
+      {!expanded && <TimeframeSelector handleChange={handleDateRangeChange} />}
       <div className={styles.pageContainer}>
-        {!expanded && (
-          <TimeframeSelector handleChange={handleDateRangeChange} />
-        )}
         <div
           className={
             expanded

@@ -1,0 +1,27 @@
+.pageContainer {
+  display: flex;
+  /* grid-template-columns: repeat(5, 1fr); */
+  gap: 0.7em;
+}
+
+.unitContainer {
+  padding-right: 1em;
+  gap: 0.7em;
+  /* grid-column: 4/7; */
+}
+
+.locationCardContainer {
+  /* grid-column: 1/4; */
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding-left: 1em;
+}
+.locationCardContainerCollapsed {
+  padding: 1.75rem;
+  gap: 0.25em;
+  grid-column: 1/6;
+  display: flex;
+  /* padding: 0.9em; */
+}
