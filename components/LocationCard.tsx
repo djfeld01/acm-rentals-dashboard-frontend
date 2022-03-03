@@ -11,6 +11,7 @@ const LocationCard = ({
   expanded,
   dateRange,
   key,
+  unitsRef,
 }: {
   location: object;
   activityType: string;
@@ -18,11 +19,15 @@ const LocationCard = ({
   expanded: boolean;
   dateRange: string;
   key: string;
+  unitsRef: any;
 }) => {
   const { activities }: { activities: Array<object> } = location;
   const dateBreakdown = { year: 0, month: 1, week: 2, today: 3 };
   const filteredActivities = filterData(activities);
-
+  const handleClick = () => {
+    setSelectedStore();
+    unitsRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
   let collapsedActivity = filteredActivities[dateBreakdown[dateRange]];
   return (
     <div className={styles.container} key={key} onClick={setSelectedStore}>

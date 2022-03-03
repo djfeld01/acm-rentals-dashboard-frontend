@@ -3,7 +3,7 @@ import styles from '../../styles/Home2.module.css';
 import axios from 'axios';
 import Link from 'next/link';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import LocationCard from '../../components/LocationCard';
 import ActivityTypeSelector from '../../components/ActivityTypeSelector';
 import TimeframeSelector from '../../components/TimeframeSelector';
@@ -11,6 +11,7 @@ import ExpandedSelector from '../../components/ExpandedSelector';
 import Units from '../../components/Units';
 
 const Dashboard: NextPage = ({ data }) => {
+  const unitsRef = useRef();
   const [activityType, setActivityType] = useState('moveIns');
   const [selectedLocation, setSelectedLocation] = useState(data[0]);
   const [expanded, setExpanded] = useState(true);
@@ -48,12 +49,13 @@ const Dashboard: NextPage = ({ data }) => {
                 dateRange={dateRange}
                 expanded={expanded}
                 key={location._id}
+                unitsRef={unitsRef}
               />
             );
           })}
         </div>
 
-        <div className={styles.unitContainer}>
+        <div className={styles.unitContainer} ref={unitsRef}>
           <Units
             location={selectedLocation}
             activityType={activityType}
