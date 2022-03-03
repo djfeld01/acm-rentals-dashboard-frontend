@@ -27,40 +27,44 @@ const Dashboard: NextPage = ({ data }) => {
   };
 
   return (
-    <div className={styles.pageContainer}>
+    <>
       <ActivityTypeSelector handleChange={handleActivityTypeChange} />
       <ExpandedSelector handleChange={handleExpanding} />
-      {!expanded && <TimeframeSelector handleChange={handleDateRangeChange} />}
-      <div
-        className={
-          expanded
-            ? styles.locationCardContainer
-            : styles.locationCardContainerCollapsed
-        }
-      >
-        {data.map((location) => {
-          return (
-            <LocationCard
-              location={location}
-              activityType={activityType}
-              setSelectedStore={() => setSelectedLocation(location)}
-              dateRange={dateRange}
-              expanded={expanded}
-              key={location._id}
-            />
-          );
-        })}
-      </div>
+      <div className={styles.pageContainer}>
+        {!expanded && (
+          <TimeframeSelector handleChange={handleDateRangeChange} />
+        )}
+        <div
+          className={
+            expanded
+              ? styles.locationCardContainer
+              : styles.locationCardContainerCollapsed
+          }
+        >
+          {data.map((location) => {
+            return (
+              <LocationCard
+                location={location}
+                activityType={activityType}
+                setSelectedStore={() => setSelectedLocation(location)}
+                dateRange={dateRange}
+                expanded={expanded}
+                key={location._id}
+              />
+            );
+          })}
+        </div>
 
-      <div className={styles.unitContainer}>
-        <Units
-          location={selectedLocation}
-          activityType={activityType}
-          expanded={expanded}
-          dateRange={dateRange}
-        />
+        <div className={styles.unitContainer}>
+          <Units
+            location={selectedLocation}
+            activityType={activityType}
+            expanded={expanded}
+            dateRange={dateRange}
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
