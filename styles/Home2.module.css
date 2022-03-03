@@ -8,7 +8,6 @@
 }
 
 .unitContainer {
-  padding-right: 1em;
   gap: 0.7em;
   /* grid-column: 4/7; */
 }
@@ -19,7 +18,7 @@
   width: 100%;
   flex-wrap: wrap;
   flex-direction: row;
-  padding-left: 1em;
+  justify-content: center;
   max-width: 900px;
 }
 .locationCardContainerCollapsed {
