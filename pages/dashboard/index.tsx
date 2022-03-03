@@ -29,8 +29,8 @@ const Dashboard: NextPage = ({ data }) => {
   return (
     <>
       <ActivityTypeSelector handleChange={handleActivityTypeChange} />
-      <ExpandedSelector handleChange={handleExpanding} />
-      {!expanded && <TimeframeSelector handleChange={handleDateRangeChange} />}
+      {/* <ExpandedSelector handleChange={handleExpanding} />
+      {!expanded && <TimeframeSelector handleChange={handleDateRangeChange} />} */}
       <div className={styles.pageContainer}>
         <div
           className={
