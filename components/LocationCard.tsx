@@ -26,11 +26,11 @@ const LocationCard = ({
   const filteredActivities = filterData(activities);
   const handleClick = () => {
     setSelectedStore();
-    unitsRef.current.scrollIntoView({ behavior: 'smooth' });
+    unitsRef.current.scrollIntoView();
   };
   let collapsedActivity = filteredActivities[dateBreakdown[dateRange]];
   return (
-    <div className={styles.container} key={key} onClick={setSelectedStore}>
+    <div className={styles.container} key={key} onClick={handleClick}>
       {expanded ? (
         <>
           <h3 className={styles.header}>{location.locationInfo[0].siteName}</h3>
