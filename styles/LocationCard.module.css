@@ -1,5 +1,5 @@
 .container {
-  max-width: 195px;
+  width: 170px;
   border-bottom: 5px solid #6149e9;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -15,7 +15,7 @@
 
 .activityHead {
   grid-column: 1/ 5;
-  font-size: 1.2rem;
+  font-size: 0.75rem;
   background-color: black;
   color: lightgray;
   font-family: var(--headingFont);
@@ -24,7 +24,7 @@
 }
 .header {
   grid-column: 1/ 5;
-  font-size: 1rem;
+  font-size: 0.85rem;
   background-color: black;
   color: lightgray;
   font-family: var(--headingFont);
@@ -37,13 +37,13 @@
 .timeFrame {
   display: block;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.7rem;
   color: rgb(95, 76, 32);
   justify-content: center;
 }
 
 .subHead {
-  font-size: 1rem;
+  font-size: 0.7rem;
   background-color: black;
   color: lightgray;
   justify-content: center;
