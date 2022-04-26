@@ -74,7 +74,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const response = await axios(
     `https://acm-rentals-dashboard-1.herokuapp.com/api/v1/tenantActivity/dashboard`
   );
-  const { data } = response.data;
+  const { data } = response?.data;
 
   return {
     props: { data },

@@ -28,13 +28,19 @@ const LocationCard = ({
     setSelectedStore();
     unitsRef.current.scrollIntoView();
   };
+  const { currentOccupancy, siteName } = location.locationInfo[0];
+  const formattedCurrentOccupancy = currentOccupancy.toFixed(1);
   let collapsedActivity = filteredActivities[dateBreakdown[dateRange]];
   return (
     <div className={styles.container} key={key} onClick={handleClick}>
       {expanded ? (
         <>
-          <h3 className={styles.header}>{location.locationInfo[0].siteName}</h3>
+          <h3 className={styles.header}>{siteName}</h3>
           <h3 className={styles.activityHead}>{activityType}</h3>
+          <h3 className={styles.activityHead}>
+            Occupancy: {formattedCurrentOccupancy}%
+          </h3>
+
           <h3 className={styles.subHead}>Year</h3>
           <h3 className={styles.subHead}>Month</h3>
           <h3 className={styles.subHead}>Week</h3>
